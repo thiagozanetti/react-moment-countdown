@@ -1,0 +1,40 @@
+{
+  "name": "react-countdown-timer",
+  "version": "0.0.1",
+  "description": "An unopinionated countdown timer component for React.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "prepublish": "npm run build",
+    "test": "ava --tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagozanetti/react-countdown-timer.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "countdown",
+    "javascript",
+    "es6"
+  ],
+  "author": "Thiago Zanetti <thiago.project@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thiagozanetti/react-countdown-timer/issues"
+  },
+  "homepage": "https://github.com/thiagozanetti/react-countdown-timer#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "react": "^15.4.2"
+  },
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
