@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import formatDate from './format-date';
 
-class ReactIntlCountDown extends Component {
+class ReactMomentCountDown extends Component {
   constructor(props) {
     super(props)
 
@@ -48,17 +48,17 @@ class ReactIntlCountDown extends Component {
   }
 };
 
-ReactIntlCountDown.propTypes = {
+ReactMomentCountDown.propTypes = {
   toDate:React.PropTypes.instanceOf(Date).isRequired,
   formatMask: React.PropTypes.string.isRequired,
   onTick: React.PropTypes.func,
   onCountdownEnd: React.PropTypes.func,
 };
 
-ReactIntlCountDown.defaultProps = {
+ReactMomentCountDown.defaultProps = {
   formatMask: 'HH:mm:ss',
   onTick: null,
   onCountdownEnd: null,
 };
 
-export default ReactIntlCountDown;
+export default ReactMomentCountDown;

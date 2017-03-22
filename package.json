@@ -1,5 +1,5 @@
 {
-  "name": "react-countdown-timer",
+  "name": "react-moment-countdown",
   "version": "0.0.1",
   "description": "An unopinionated countdown timer component for React.",
   "main": "dist/index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiagozanetti/react-countdown-timer.git"
+    "url": "git+https://github.com/thiagozanetti/react-moment-countdown.git"
   },
   "keywords": [
     "react",
@@ -22,9 +22,9 @@
   "author": "Thiago Zanetti <thiago.project@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thiagozanetti/react-countdown-timer/issues"
+    "url": "https://github.com/thiagozanetti/react-moment-countdown/issues"
   },
-  "homepage": "https://github.com/thiagozanetti/react-countdown-timer#readme",
+  "homepage": "https://github.com/thiagozanetti/react-moment-countdown#readme",
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
@@ -32,9 +32,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "moment": "^2.18.1",
     "react": "^15.4.2"
-  },
-  "dependencies": {
-    "moment": "^2.18.1"
   }
 }
