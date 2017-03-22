@@ -1,0 +1,7 @@
+.babelrc
+.npmignore
+.gitignore
+.env
+.idea/
+node_modules/
+src/
