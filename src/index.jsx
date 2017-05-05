@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {momentObj} from 'react-moment-proptypes';
 
 import formatDate from './format-date';
 
@@ -22,22 +24,23 @@ class ReactMomentCountDown extends Component {
   }
 
   tick = () => {
-    const countdown = formatDate(new Date(), this.props.toDate, this.props.formatMask);
+    let {toDate, sourceFormatMask, targetFormatMask, onCountdownEnd, onTick} = this.props;
+    const [delta, countdown] = formatDate(toDate, targetFormatMask, sourceFormatMask);
 
-    if (countdown === '00:00:00') {
+    if (delta <= 0) {
       window.clearInterval(this.timer);
 
-      if (this.props.onCountdownEnd) {
-        this.props.onCountdownEnd();
+      if (onCountdownEnd) {
+        onCountdownEnd();
       }
     }
 
     this.setState({
-      countdown,
+      countdown
     });
 
-    if (this.props.onTick) {
-      this.props.onTick(countdown);
+    if (onTick) {
+      onTick(delta);
     }
   }
 
@@ -49,14 +52,20 @@ class ReactMomentCountDown extends Component {
 };
 
 ReactMomentCountDown.propTypes = {
-  toDate:React.PropTypes.instanceOf(Date).isRequired,
-  formatMask: React.PropTypes.string.isRequired,
-  onTick: React.PropTypes.func,
-  onCountdownEnd: React.PropTypes.func,
+  toDate: PropTypes.oneOfType([
+    momentObj,
+    PropTypes.instanceOf(Date),
+    PropTypes.string
+  ]).isRequired,
+  sourceFormatMask: PropTypes.string,
+  targetFormatMask: PropTypes.string,
+  onTick: PropTypes.func,
+  onCountdownEnd: PropTypes.func,
 };
 
 ReactMomentCountDown.defaultProps = {
-  formatMask: 'HH:mm:ss',
+  sourceFormatMask: 'YYYY-MM-DD',
+  targetFormatMask: 'HH:mm:ss',
   onTick: null,
   onCountdownEnd: null,
 };
