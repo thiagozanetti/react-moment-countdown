@@ -1,53 +1,53 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import {momentObj} from 'react-moment-proptypes';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import {momentObj} from 'react-moment-proptypes'
 
-import formatDate from './format-date';
+import formatDate from './format-date'
 
 class ReactMomentCountDown extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
-      countdown: null,
+      countdown: null
     }
   }
 
-  componentDidMount() {
-    this.tick();
+  componentDidMount () {
+    this.tick()
 
-    this. timer = window.setInterval(this.tick.bind(this), 1000);
+    this.timer = window.setInterval(this.tick.bind(this), 1000)
   }
 
-  componentWillUnmount() {
-    window.clearInterval(this.timer);
+  componentWillUnmount () {
+    window.clearInterval(this.timer)
   }
 
   tick = () => {
-    let {toDate, sourceFormatMask, targetFormatMask, onCountdownEnd, onTick} = this.props;
-    const [delta, countdown] = formatDate(toDate, targetFormatMask, sourceFormatMask);
+    const {toDate, sourceFormatMask, targetFormatMask, onCountdownEnd, onTick} = this.props
+    const [delta, countdown] = formatDate(toDate, targetFormatMask, sourceFormatMask)
 
     if (delta <= 0) {
-      window.clearInterval(this.timer);
+      window.clearInterval(this.timer)
 
       if (onCountdownEnd) {
-        onCountdownEnd();
+        onCountdownEnd()
       }
     }
 
     this.setState({
       countdown
-    });
+    })
 
     if (onTick) {
-      onTick(delta);
+      onTick(delta)
     }
   }
 
-  render() {
-    return(
+  render () {
+    return (
       <span>{ this.state.countdown }</span>
-    );
+    )
   }
 };
 
@@ -60,14 +60,14 @@ ReactMomentCountDown.propTypes = {
   sourceFormatMask: PropTypes.string,
   targetFormatMask: PropTypes.string,
   onTick: PropTypes.func,
-  onCountdownEnd: PropTypes.func,
-};
+  onCountdownEnd: PropTypes.func
+}
 
 ReactMomentCountDown.defaultProps = {
   sourceFormatMask: 'YYYY-MM-DD',
   targetFormatMask: 'HH:mm:ss',
   onTick: null,
-  onCountdownEnd: null,
-};
+  onCountdownEnd: null
+}
 
-export default ReactMomentCountDown;
+export default ReactMomentCountDown
