@@ -19,7 +19,7 @@ export function getDelta (toDate, sourceFormatMask) {
 }
 
 function editTargetFormatMask (duration, targetFormatMask) {
-  let changeDate = []
+  const changeDate = []
   if (duration.months() === 0) changeDate.push('M')
   if (duration.days() === 0) changeDate.push('D')
   return changeDate.reduce((acc, char) => {
