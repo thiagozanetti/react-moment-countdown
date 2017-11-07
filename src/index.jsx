@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import {momentObj} from 'react-moment-proptypes'
+import { oneOfType, func, instanceOf, string  } from 'prop-types'
+import { momentObj } from 'react-moment-proptypes'
 
 import formatDate from './format-date'
 
@@ -52,15 +52,15 @@ class ReactMomentCountDown extends Component {
 };
 
 ReactMomentCountDown.propTypes = {
-  toDate: PropTypes.oneOfType([
+  toDate: oneOfType([
     momentObj,
-    PropTypes.instanceOf(Date),
-    PropTypes.string
+    instanceOf(Date),
+    string
   ]).isRequired,
-  sourceFormatMask: PropTypes.string,
-  targetFormatMask: PropTypes.string,
-  onTick: PropTypes.func,
-  onCountdownEnd: PropTypes.func
+  sourceFormatMask: string,
+  targetFormatMask: string,
+  onTick: func,
+  onCountdownEnd: func
 }
 
 ReactMomentCountDown.defaultProps = {
