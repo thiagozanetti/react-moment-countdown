@@ -10,7 +10,8 @@ $ npm install react-moment-countdown --save
 
 ## How to use
 
-### Insert javascript `Date` instance into `toDate` props  
+### Insert javascript `Date` instance into `toDate` props:
+
    ```js
       import React from 'react';
       import ReactMomentCountDown from 'react-moment-countdown';
@@ -24,7 +25,8 @@ $ npm install react-moment-countdown --save
       };
    ```
 
-### Insert `moment` instance into `toDate` props
+### Insert `moment` instance into `toDate` props:
+
    ```js
    import React from 'react';
    import ReactMomentCountDown from 'react-moment-countdown';
@@ -39,7 +41,8 @@ $ npm install react-moment-countdown --save
    };
    ```
 
-### Insert string value into `toDate` props with additional `sourceFormatMask` props.  
+### Insert string value into `toDate` props with additional `sourceFormatMask` props:
+
 The default value of `sourceFormatMask` props is `YYYY-MM-DD`.
 
    ```js
@@ -56,7 +59,7 @@ The default value of `sourceFormatMask` props is `YYYY-MM-DD`.
 
 ### `targetFormatMask` props
 
-   You can customize countdown format display with `targetFormatMask` props `(default:'HH:mm:ss')`, for example  
+   You can customize countdown format display with `targetFormatMask` props (default is `'HH:mm:ss'`), for example  
 
    ```js
    import {render} from 'react-dom'
@@ -71,7 +74,9 @@ The default value of `sourceFormatMask` props is `YYYY-MM-DD`.
    )
    ```
 ### `onTick` and `onCountdownEnd` props
-  You can add `onTick` function props when countdown timer is counting and `onCountdownEnd` one when countdown timer has ended
+
+  You can add `onTick` function to trigger actions for every `tick` and `onCountdownEnd` to trigger actions when countdown timer has ended
+
   ```js
   import React, {PureComponent} from 'react'
   import ReactMomentCountDown from 'react-moment-countdown'
