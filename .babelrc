@@ -4,8 +4,8 @@
     "react"
   ],
   "plugins": [
-    ["transform-react-jsx", {
-      "pragma": "dom"
-    }]
+    [
+      "transform-react-jsx"
+    ]
   ]
 }
