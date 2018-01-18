@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { oneOfType, func, instanceOf, string  } from 'prop-types'
+import { oneOfType, func, instanceOf, string } from 'prop-types'
 import { momentObj } from 'react-moment-proptypes'
 
 import formatDate from './format-date'
 
 class ReactMomentCountDown extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -13,18 +13,18 @@ class ReactMomentCountDown extends Component {
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.tick()
 
     this.timer = window.setInterval(this.tick.bind(this), 1000)
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     window.clearInterval(this.timer)
   }
 
-  tick = () => {
-    const {toDate, sourceFormatMask, targetFormatMask, onCountdownEnd, onTick} = this.props
+  tick() {
+    const { toDate, sourceFormatMask, targetFormatMask, onCountdownEnd, onTick } = this.props
     const [delta, countdown] = formatDate(toDate, targetFormatMask, sourceFormatMask)
 
     if (delta <= 0) {
@@ -43,10 +43,9 @@ class ReactMomentCountDown extends Component {
       onTick(delta)
     }
   }
-
-  render () {
+  render() {
     return (
-      <span>{ this.state.countdown }</span>
+      <span>{this.state.countdown}</span>
     )
   }
 };
