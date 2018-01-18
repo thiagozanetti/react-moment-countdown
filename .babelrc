@@ -1,8 +1,11 @@
 {
   "presets": [
     "env",
-    "latest",
-    "stage-0",
     "react"
+  ],
+  "plugins": [
+    ["transform-react-jsx", {
+      "pragma": "dom"
+    }]
   ]
 }
