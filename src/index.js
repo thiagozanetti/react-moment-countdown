@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { oneOfType, func, instanceOf, string } from 'prop-types';
 import { momentObj } from 'react-moment-proptypes';
 
@@ -14,14 +14,14 @@ const ReactMomentCountDown = ({
   ...otherProps
 }) => {
   const [countdown, setCountdown] = useState(null);
-  const [timer, setTimer] = useState(null);
+  const timer = useRef();
 
   const tick = () => {
     const [delta, lastCountdown] = formatDate(toDate, targetFormatMask, sourceFormatMask);
 
     if (delta <= 0) {
-      window.clearInterval(timer);
-      setTimer(null);
+      clearInterval(timer.current);
+      timer.current = null;
 
       onCountdownEnd();
     } else {
@@ -31,14 +31,13 @@ const ReactMomentCountDown = ({
     }
   };
 
-  // componentDidMount
+  // componentDidMount, componentWillUmnount
   useEffect(() => {
     tick();
-    setTimer(window.setInterval(tick(), 1000));
-  }, []);
+    timer.current = setInterval(tick, 1000);
 
-  // componentWillUnmount
-  useEffect(() => () => window.clearInterval(timer), []);
+    return () => clearInterval(timer.current);
+  }, []);
 
   return (
     <span {...otherProps}>{countdown}</span>
