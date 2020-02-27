@@ -1,7 +1,7 @@
 .babelrc
 .npmignore
 .gitignore
-.env
-.idea/
+.eslintrc.js
 node_modules/
 src/
+example/
