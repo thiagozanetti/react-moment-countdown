@@ -1,7 +1,7 @@
 {
   "name": "react-moment-countdown",
-  "version": "0.4.0",
-  "description": "An unopinionated countdown timer component for React.",
+  "version": "0.4.1",
+  "description": "An unopinionated countdown timer component for React and moment.",
   "main": "dist/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
